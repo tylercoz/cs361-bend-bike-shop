@@ -4,18 +4,21 @@ class Luggage
 
   attr_reader :items
 
-  def initialize(initial_capacity, items, bike)
-    @capacity = initial_capacity
-    @items = items
-    @bike = bike
+  def initialize(args)
+    @capacity = args[:capacity] || DEFAULT_MAX_CAPACITY
+    @items = args[:items] || []
   end
 
   def add(item)
-    self.items << item
+    @items << item
   end
 
   def weight
-    self.items.size * 10
+    @items.size * 10
+  end
+
+  def count
+    @items.count
   end
 
 end
